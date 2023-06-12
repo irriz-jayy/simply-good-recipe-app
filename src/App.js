@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      <h2 className="font-medium">Simply good</h2>
+      <Sidebar />
     </div>
   );
 }

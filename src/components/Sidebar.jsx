@@ -42,8 +42,8 @@ export default function Example() {
               href={item.href}
               className={classNames(
                 item.current
-                  ? "bg-background1 border-blue-400 text-font1"
-                  : "border-transparent text-font1 hover:bg-background2 hover:opacity-30 hover:text-font1",
+                  ? "bg-background1 border-blue-400 text-font1 font-curve"
+                  : "border-transparent font-curve text-font1 hover:bg-background2 hover:opacity-30 hover:text-font1",
                 "group flex items-center px-3 py-2 text-sm font-medium border-l-4"
               )}
             >

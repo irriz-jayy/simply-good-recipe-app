@@ -11,10 +11,15 @@ import {
 } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Home", href: "#", icon: HomeIcon, current: true },
+  { name: "Home", href: "/", icon: HomeIcon, current: true },
   { name: "Recipes", href: "#", icon: CakeIcon, current: false },
   { name: "Saved", href: "#", icon: StarIcon, current: false },
-  { name: "Profile", href: "#", icon: UserCircleIcon, current: false },
+  {
+    name: "Profile",
+    href: "/my-profile",
+    icon: UserCircleIcon,
+    current: false,
+  },
   {
     name: "Logout",
     href: "#",

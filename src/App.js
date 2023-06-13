@@ -1,12 +1,13 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Profile from "./components/Profile";
-// import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      {/* <Sidebar /> */}
-      <Profile />
+      <Routes>
+        <Route path="/my-profile" element={<Profile />} />
+      </Routes>
     </div>
   );
 }

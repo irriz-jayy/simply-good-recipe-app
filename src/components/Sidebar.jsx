@@ -92,6 +92,7 @@ export default function Example() {
                         src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=500"
                         alt="Your Company"
                       />
+                      <p className="text-font1 font-curve">Simply Good</p>
                     </div>
                     <nav className="mt-5 space-y-1 px-2">
                       {navigation.map((item) => (
@@ -100,8 +101,8 @@ export default function Example() {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-background1 text-font1"
-                              : "text-font1 hover:bg-background2 hover:bg-opacity-50",
+                              ? "bg-background1 text-font1 font-curve"
+                              : "text-font1  font-curve hover:bg-background2 hover:bg-opacity-50",
                             "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                           )}
                         >
@@ -134,6 +135,7 @@ export default function Example() {
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                   alt="Your Company"
                 />
+                <p className="text-font1 font-curve">Simply Good</p>
               </div>
               <nav className="mt-5 flex-1 space-y-1 px-2">
                 {navigation.map((item) => (
@@ -142,8 +144,8 @@ export default function Example() {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-background1 text-font1"
-                        : "text-font1 hover:bg-background1 hover:bg-opacity-75",
+                        ? "bg-background1 text-font1 font-curve"
+                        : "text-font1 font-curve hover:bg-background1 hover:bg-opacity-75",
                       "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                     )}
                   >

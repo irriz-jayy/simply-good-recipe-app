@@ -6,7 +6,7 @@ function Profile() {
     <>
       <div className="flex">
         <Sidebar />
-        <div className="flex-1">
+        <div className="flex-1 bg-background2 bg-opacity-30 h-[100vh]">
           <main>
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
@@ -16,10 +16,10 @@ function Profile() {
               </div>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
                 <div className="py-4">
-                  <div className="h-96 rounded-lg border-4  border-gray-200 flex">
+                  <div className="h-96 rounded-lg border-4  bg-white h-80 flex">
                     <div className="flex items-center justify-center p-2">
                       <img
-                        className="h-80 w-80 rounded-md"
+                        className="h-72 w-80 rounded-md"
                         src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
                         alt="profile"
                       />

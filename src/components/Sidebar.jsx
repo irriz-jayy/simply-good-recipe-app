@@ -92,7 +92,7 @@ export default function Example() {
                         src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=500"
                         alt="Your Company"
                       />
-                      <p className="text-font1 font-curve">Simply Good</p>
+                      <p className="text-font1 font-curve ml-2">Simply Good</p>
                     </div>
                     <nav className="mt-5 space-y-1 px-2">
                       {navigation.map((item) => (
@@ -101,8 +101,8 @@ export default function Example() {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-background1 text-font1 font-curve"
-                              : "text-font1  font-curve hover:bg-background2 hover:bg-opacity-50",
+                              ? "bg-blue-800 bg-opacity-30 text-font1 font-curve"
+                              : "text-font1  font-curve hover:bg-blue-800 hover:bg-opacity-30",
                             "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                           )}
                         >
@@ -135,7 +135,7 @@ export default function Example() {
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                   alt="Your Company"
                 />
-                <p className="text-font1 font-curve">Simply Good</p>
+                <p className="text-font1 font-curve ml-2">Simply Good</p>
               </div>
               <nav className="mt-5 flex-1 space-y-1 px-2">
                 {navigation.map((item) => (
@@ -144,8 +144,8 @@ export default function Example() {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-background1 text-font1 font-curve"
-                        : "text-font1 font-curve hover:bg-background1 hover:bg-opacity-75",
+                        ? "bg-blue-800 bg-opacity-30 text-font1 font-curve"
+                        : "text-font1 font-curve hover:bg-blue-800 hover:bg-opacity-30",
                       "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                     )}
                   >

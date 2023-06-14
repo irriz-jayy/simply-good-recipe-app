@@ -21,6 +21,25 @@ function Recipes() {
   const handleTouchEnd = () => {
     setIsHovered(false);
   };
+
+  const handleClick = () => {
+    console.log("click");
+  };
+
+  const handleDelete = (event) => {
+    event.stopPropagation();
+    console.log("delete");
+  };
+
+  const handleFavourite = (event) => {
+    event.stopPropagation();
+    console.log("favourite");
+  };
+
+  const handleEdit = (e) => {
+    e.stopPropagation();
+    console.log("edit");
+  };
   return (
     <>
       <div className="flex">
@@ -37,6 +56,7 @@ function Recipes() {
                 onMouseLeave={handleMouseLeave}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
+                onClick={handleClick}
               >
                 <img
                   src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
@@ -45,7 +65,7 @@ function Recipes() {
                 />
 
                 {isHovered && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 flex-col">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 flex-col hover:cursor-pointer">
                     <div className="text-white text-center font-curve">
                       <h3 className="text-xl font-semibold mb-2">
                         Recipe name
@@ -54,16 +74,25 @@ function Recipes() {
                       <p>time</p>
                       <p>servings</p>
                     </div>
-                    <div className="absolute bottom-6 left-6 hover:cursor-pointer">
+                    <div
+                      className="absolute bottom-6 left-6 hover:cursor-pointer"
+                      onClick={handleEdit}
+                    >
                       <PencilIcon className="h-6 w-6 text-white" />
                     </div>
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer">
+                    <div
+                      className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
+                      onClick={handleFavourite}
+                    >
                       <StarIcon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
                       />
                     </div>
-                    <div className="absolute bottom-6 right-6 hover:cursor-pointer">
+                    <div
+                      className="absolute bottom-6 right-6 hover:cursor-pointer"
+                      onClick={handleDelete}
+                    >
                       <TrashIcon className="h-6 w-6 text-white" />
                     </div>
                   </div>

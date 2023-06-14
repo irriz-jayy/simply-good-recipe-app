@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
+import { StarIcon } from "@heroicons/react/24/outline";
 
 function Homepage() {
   const [isHovered, setIsHovered] = useState(false);
@@ -52,6 +53,15 @@ function Homepage() {
                       <p>description</p>
                       <p>time</p>
                       <p>servings</p>
+                      <div
+                        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
+                        // onClick={handleFavourite}
+                      >
+                        <StarIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
+                      </div>
                     </div>
                   </div>
                 )}

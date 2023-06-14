@@ -54,10 +54,10 @@ function Recipes() {
                       <p>time</p>
                       <p>servings</p>
                     </div>
-                    <div className="absolute bottom-6 left-6">
+                    <div className="absolute bottom-6 left-6 hover:cursor-pointer">
                       <PencilIcon className="h-6 w-6 text-white" />
                     </div>
-                    <div className="absolute bottom-6 right-6">
+                    <div className="absolute bottom-6 right-6 hover:cursor-pointer">
                       <TrashIcon className="h-6 w-6 text-white" />
                     </div>
                   </div>

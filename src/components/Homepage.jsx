@@ -45,7 +45,7 @@ function Homepage() {
                 />
 
                 {isHovered && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
                     <div className="text-white text-center font-curve">
                       <h3 className="text-xl font-semibold mb-2">
                         Recipe name

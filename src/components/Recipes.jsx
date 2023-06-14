@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 function Recipes() {
   const [isHovered, setIsHovered] = useState(false);
@@ -53,8 +54,12 @@ function Recipes() {
                       <p>time</p>
                       <p>servings</p>
                     </div>
-                    <div className="absolute bottom-3 left-3">Delete</div>
-                    <div className="absolute bottom-3 right-3">Update</div>
+                    <div className="absolute bottom-6 left-6">
+                      <PencilIcon className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="absolute bottom-6 right-6">
+                      <TrashIcon className="h-6 w-6 text-white" />
+                    </div>
                   </div>
                 )}
               </div>

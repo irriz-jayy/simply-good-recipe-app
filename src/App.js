@@ -6,6 +6,7 @@ import Saved from "./components/Saved";
 import Recipes from "./components/Recipes";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+import RecipeDetails from "./components/RecipeDetails";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/sign-up" element={<Signup />} />
+        <Route path="/recipe-details" element={<RecipeDetails />} />
       </Routes>
     </div>
   );

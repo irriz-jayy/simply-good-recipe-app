@@ -1,5 +1,7 @@
 import React from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from './Sidebar'; 
+import { Modal, Input, InputNumber, Form, Button, Upload } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
 import { useState } from "react";
 import {
   PencilIcon,
@@ -10,6 +12,38 @@ import {
 
 function Recipes() {
   const [isHovered, setIsHovered] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [form] = Form.useForm();
+  const [recipes, setRecipes] = useState([]);
+
+  const handleOk = () => {
+    form
+      .validateFields()
+      .then((values) => {
+        const newRecipe = {
+          name: values.name,
+          time: values.time,
+          servings: values.servings,
+          ingredients: values.ingredients,
+          directions: values.directions,
+          image: values.image,
+        };
+
+        form.resetFields();
+        setOpen(false);
+        // Handle the logic for saving the form values
+        setRecipes([...recipes, newRecipe]);
+      })
+      .catch((errorInfo) => {
+        console.log('Validation failed:', errorInfo);
+      });
+  };
+
+  const handleCancel = () => {
+    form.resetFields();
+    setOpen(false);
+  };
+
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -104,14 +138,77 @@ function Recipes() {
                 )}
               </div>
             </div>
-            <div className="fixed bottom-4 right-4">
-              <button className="bg-blue-500 p-3 rounded-md">
+            <div className="fixed bottom-4 right-4" >
+              <button className="bg-blue-500 p-3 rounded-md" onClick={() => setOpen(true)}>
                 <PlusIcon className="h-6 w-6 text-white" />
+
               </button>
             </div>
           </main>
         </div>
       </div>
+      <Modal
+         title="Modal 1000px width"
+         centered
+         open={open}
+         onOk={handleOk}
+         onCancel={handleCancel}
+         width={1000}
+       >
+         <Form form={form} layout="vertical">
+           <Form.Item
+             label="Recipe Name"
+             name="name"
+             rules={[{ required: true, message: 'Please enter recipe name' }]}
+           >
+             <Input placeholder="Recipe Name" />
+           </Form.Item>
+ 
+           <Form.Item
+             label="Time"
+             name="time"
+             rules={[{ required: true, message: 'Please enter time' }]}
+           >
+             <Input placeholder="Time" />
+           </Form.Item>
+ 
+           <Form.Item
+             label="Servings"
+             name="servings"
+             rules={[{ required: true, message: 'Please enter servings' }]}
+           >
+             <InputNumber placeholder="Servings" />
+           </Form.Item>
+ 
+           <Form.Item
+             label="Ingredients"
+             name="ingredients"
+             rules={[{ required: true, message: 'Please enter ingredients' }]}
+           >
+             <Input.TextArea placeholder="Ingredients" />
+           </Form.Item>
+ 
+           <Form.Item
+             label="Directions"
+             name="directions"
+             rules={[
+               { required: true, message: 'Please enter instructions or directions' },
+             ]}
+           >
+             <Input.TextArea placeholder="Directions" />
+           </Form.Item>
+           <Form.Item
+            label="Image"
+            name="image"
+            rules={[{ required: true, message: 'Please upload an image' }]}
+          >
+            <Upload>
+              <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>
+          </Form.Item>
+         </Form>
+        
+      </Modal>
     </>
   );
 }

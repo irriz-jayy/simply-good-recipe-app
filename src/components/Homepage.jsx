@@ -26,7 +26,7 @@ function Homepage() {
       <div className="flex">
         <Sidebar />
         <div className="flex-1 bg-background2 bg-opacity-30">
-          <main>
+          <main className="min-h-screen">
             <div className="text-center font-medium font-curve text-4xl ">
               All recipes
             </div>

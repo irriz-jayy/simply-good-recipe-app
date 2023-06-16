@@ -1,7 +1,12 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
-import { PencilIcon, TrashIcon, StarIcon } from "@heroicons/react/24/outline";
+import {
+  PencilIcon,
+  TrashIcon,
+  StarIcon,
+  PlusIcon,
+} from "@heroicons/react/24/outline";
 
 function Recipes() {
   const [isHovered, setIsHovered] = useState(false);
@@ -45,7 +50,7 @@ function Recipes() {
       <div className="flex">
         <Sidebar />
         <div className="flex-1 bg-background2 bg-opacity-30">
-          <main>
+          <main className="min-h-screen">
             <div className="text-center font-medium font-curve text-4xl ">
               Your recipes
             </div>
@@ -98,6 +103,11 @@ function Recipes() {
                   </div>
                 )}
               </div>
+            </div>
+            <div className="fixed bottom-4 right-4">
+              <button className="bg-blue-500 p-3 rounded-md">
+                <PlusIcon className="h-6 w-6 text-white" />
+              </button>
             </div>
           </main>
         </div>

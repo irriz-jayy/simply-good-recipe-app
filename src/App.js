@@ -5,6 +5,7 @@ import Homepage from "./components/Homepage";
 import Saved from "./components/Saved";
 import Recipes from "./components/Recipes";
 import Signin from "./components/Signin";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/saved" element={<Saved />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/sign-in" element={<Signin />} />
+        <Route path="/sign-up" element={<Signup />} />
       </Routes>
     </div>
   );

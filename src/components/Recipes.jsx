@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import { Modal, Input, InputNumber, Form, Button, Upload } from "antd";
+import { Modal, Input, InputNumber, Form, Button, Upload ,Select } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import {
@@ -15,6 +15,19 @@ function Recipes() {
   const [open, setOpen] = useState(false);
   const [form] = Form.useForm();
   const [recipes, setRecipes] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+
+
+  const countryOptions = [
+    { value: 'KE', label: 'Kenya' },
+    { value: 'TZ', label: 'Tanzania' },
+    { value: 'USA', label: 'United States' },
+    { value: 'CA', label: 'Canada' },
+  ];
+
+  const handleCountryChange = (selectedOption) => {
+    setSelectedCountry(selectedOption);
+  };
 
   const handleOk = () => {
     form
@@ -26,12 +39,12 @@ function Recipes() {
           servings: values.servings,
           ingredients: values.ingredients,
           directions: values.directions,
+          country: values.country,
           image: values.image,
         };
 
         form.resetFields();
         setOpen(false);
-        // Handle the logic for saving the form values
         setRecipes([...recipes, newRecipe]);
       })
       .catch((errorInfo) => {
@@ -155,6 +168,8 @@ function Recipes() {
         onOk={handleOk}
         onCancel={handleCancel}
         width={1000}
+        okText="Save"
+        okButtonProps={{ className: "bg-blue-500" }}
       >
         <Form form={form} layout="vertical">
           <Form.Item
@@ -182,6 +197,18 @@ function Recipes() {
           </Form.Item>
 
           <Form.Item
+          label="Country"
+          name="country"
+          rules={[{ required: true, message: 'Please select a country' }]}
+        >
+          <Select
+            value={selectedCountry}
+            onChange={handleCountryChange}
+            options={countryOptions}
+          />
+        </Form.Item>
+
+          <Form.Item
             label="Ingredients"
             name="ingredients"
             rules={[{ required: true, message: "Please enter ingredients" }]}
@@ -190,12 +217,12 @@ function Recipes() {
           </Form.Item>
 
           <Form.Item
-            label="Cooking instructions"
-            name="instructions"
+            label="Directions"
+            name="directions"
             rules={[
               {
                 required: true,
-                message: "Please enter instructions",
+                message: "Please enter directions",
               },
             ]}
           >

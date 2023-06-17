@@ -30,9 +30,9 @@ function Homepage() {
             <div className="text-center font-medium font-curve text-4xl ">
               All recipes
             </div>
-            <div className="border border-4 border-red-800 m-4 p-2 grid grid-cols-3 gap-4">
+            <div className="border border-4 border-red-800 m-4 p-2 grid grid-cols-1 gap-4 flex items-center justify-center">
               <div
-                className="relative h-96"
+                className="relative border border-4 border-red-800"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onTouchStart={handleTouchStart}

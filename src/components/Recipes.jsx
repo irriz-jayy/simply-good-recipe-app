@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import { Modal, Input, InputNumber, Form, Button, Upload ,Select } from "antd";
+import { Modal, Input, InputNumber, Form, Button, Upload, Select } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import {
@@ -17,12 +17,11 @@ function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
 
-
   const countryOptions = [
-    { value: 'KE', label: 'Kenya' },
-    { value: 'TZ', label: 'Tanzania' },
-    { value: 'USA', label: 'United States' },
-    { value: 'CA', label: 'Canada' },
+    { value: "KE", label: "Kenya" },
+    { value: "TZ", label: "Tanzania" },
+    { value: "USA", label: "United States" },
+    { value: "CA", label: "Canada" },
   ];
 
   const handleCountryChange = (selectedOption) => {
@@ -100,14 +99,13 @@ function Recipes() {
             <div className="text-center font-medium font-curve text-4xl ">
               Your recipes
             </div>
-            <div className="border border-4 border-red-800 m-4 p-2 grid grid-cols-3 gap-4">
+            <div className="m-4 p-2 grid grid-cols-1 gap-4 flex items-center justify-center md:grid md:grid-cols-2 md:gap-2 lg:grid lg:grid-cols-3">
               <div
-                className="relative h-96"
+                className="relative "
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
-                onClick={handleClick}
               >
                 <img
                   src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
@@ -116,7 +114,7 @@ function Recipes() {
                 />
 
                 {isHovered && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 flex-col hover:cursor-pointer">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
                     <div className="text-white text-center font-curve">
                       <h3 className="text-xl font-semibold mb-2">
                         Recipe name
@@ -124,32 +122,161 @@ function Recipes() {
                       <p>description</p>
                       <p>time</p>
                       <p>servings</p>
+                      <div
+                        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
+                        // onClick={handleFavourite}
+                      >
+                        <StarIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
+                      </div>
                     </div>
-                    <div
-                      className="absolute bottom-6 left-6 hover:cursor-pointer"
-                      onClick={handleEdit}
-                    >
-                      <PencilIcon className="h-6 w-6 text-white" />
+                  </div>
+                )}
+              </div>
+              <div
+                className="relative "
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <img
+                  src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
+                  alt=""
+                  className="w-full h-full object-cover "
+                />
+
+                {isHovered && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
+                    <div className="text-white text-center font-curve">
+                      <h3 className="text-xl font-semibold mb-2">
+                        Recipe name
+                      </h3>
+                      <p>description</p>
+                      <p>time</p>
+                      <p>servings</p>
+                      <div
+                        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
+                        // onClick={handleFavourite}
+                      >
+                        <StarIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
+                      </div>
                     </div>
-                    <div
-                      className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
-                      onClick={handleFavourite}
-                    >
-                      <StarIcon
-                        className="h-6 w-6 text-white"
-                        aria-hidden="true"
-                      />
+                  </div>
+                )}
+              </div>
+              <div
+                className="relative "
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <img
+                  src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
+                  alt=""
+                  className="w-full h-full object-cover "
+                />
+
+                {isHovered && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
+                    <div className="text-white text-center font-curve">
+                      <h3 className="text-xl font-semibold mb-2">
+                        Recipe name
+                      </h3>
+                      <p>description</p>
+                      <p>time</p>
+                      <p>servings</p>
+                      <div
+                        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
+                        // onClick={handleFavourite}
+                      >
+                        <StarIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
+                      </div>
                     </div>
-                    <div
-                      className="absolute bottom-6 right-6 hover:cursor-pointer"
-                      onClick={handleDelete}
-                    >
-                      <TrashIcon className="h-6 w-6 text-white" />
+                  </div>
+                )}
+              </div>
+              <div
+                className="relative "
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <img
+                  src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
+                  alt=""
+                  className="w-full h-full object-cover "
+                />
+
+                {isHovered && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
+                    <div className="text-white text-center font-curve">
+                      <h3 className="text-xl font-semibold mb-2">
+                        Recipe name
+                      </h3>
+                      <p>description</p>
+                      <p>time</p>
+                      <p>servings</p>
+                      <div
+                        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
+                        // onClick={handleFavourite}
+                      >
+                        <StarIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div
+                className="relative "
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+              >
+                <img
+                  src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
+                  alt=""
+                  className="w-full h-full object-cover "
+                />
+
+                {isHovered && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
+                    <div className="text-white text-center font-curve">
+                      <h3 className="text-xl font-semibold mb-2">
+                        Recipe name
+                      </h3>
+                      <p>description</p>
+                      <p>time</p>
+                      <p>servings</p>
+                      <div
+                        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer"
+                        // onClick={handleFavourite}
+                      >
+                        <StarIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
+                      </div>
                     </div>
                   </div>
                 )}
               </div>
             </div>
+
             <div className="fixed bottom-4 right-4">
               <button
                 className="bg-blue-500 p-3 rounded-md"
@@ -197,16 +324,16 @@ function Recipes() {
           </Form.Item>
 
           <Form.Item
-          label="Country"
-          name="country"
-          rules={[{ required: true, message: 'Please select a country' }]}
-        >
-          <Select
-            value={selectedCountry}
-            onChange={handleCountryChange}
-            options={countryOptions}
-          />
-        </Form.Item>
+            label="Country"
+            name="country"
+            rules={[{ required: true, message: "Please select a country" }]}
+          >
+            <Select
+              value={selectedCountry}
+              onChange={handleCountryChange}
+              options={countryOptions}
+            />
+          </Form.Item>
 
           <Form.Item
             label="Ingredients"

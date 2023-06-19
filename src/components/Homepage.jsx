@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
+import Carousel from "./Carousel";
 
 function Homepage() {
   const [isHovered, setIsHovered] = useState(false);
@@ -36,6 +37,9 @@ function Homepage() {
                 placeholder="Chapati..."
                 className="block w-80 h-10 rounded-md border-gray-300 pl-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               />
+            </div>
+            <div className="h-60">
+              <Carousel />
             </div>
             <div className="text-center font-medium font-curve text-4xl ">
               All recipes

@@ -38,7 +38,7 @@ function Homepage() {
                 className="block w-80 h-10 rounded-md border-gray-300 pl-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               />
             </div>
-            <div className="h-96">
+            <div className="h-100">
               <Carousel />
             </div>
             <div className="text-center font-medium font-curve text-4xl ">

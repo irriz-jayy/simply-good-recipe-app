@@ -27,6 +27,16 @@ function Homepage() {
         <Sidebar />
         <div className="flex-1 bg-background2 bg-opacity-30">
           <main className="min-h-screen">
+            <div className="h-24 px-2 text-center flex flex-col items-center justify-center font-medium font-heading text-4xl">
+              Find a recipe
+              <input
+                type="text"
+                name="search"
+                id="search"
+                placeholder="Chapati..."
+                className="block w-80 h-10 rounded-md border-gray-300 pl-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              />
+            </div>
             <div className="text-center font-medium font-curve text-4xl ">
               All recipes
             </div>

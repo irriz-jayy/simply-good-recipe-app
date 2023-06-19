@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         curve: ['"DM Serif Display"'],
+        heading: ['"Source Serif 4"'],
       },
       colors: {
         background1: "#85B7DC", //(50%)

@@ -27,6 +27,9 @@ function Homepage() {
         <Sidebar />
         <div className="flex-1 bg-background2 bg-opacity-30">
           <main className="min-h-screen">
+            <div className="h-96 text-center font-medium font-curve text-4xl">
+              Welcome banner
+            </div>
             <div className="text-center font-medium font-curve text-4xl ">
               All recipes
             </div>

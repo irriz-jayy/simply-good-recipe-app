@@ -13,7 +13,7 @@ import "swiper/css/scrollbar";
 export default () => {
   return (
     <>
-      <div className="h-96">
+      <div className="h-[75vh]">
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={30}

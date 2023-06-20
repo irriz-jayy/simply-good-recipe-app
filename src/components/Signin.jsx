@@ -11,7 +11,7 @@ function Signin() {
       }}
     >
       <div className="h-screen flex items-center justify-center">
-        <div className="bg-background1 bg-opacity-80 p-6 rounded-lg shadow-lg relative z-10">
+        <div className="bg-background2 bg-opacity-80 p-6 rounded-lg shadow-lg relative z-10">
           <form>
             <p className="text-center text-3xl font-curve">Sign in</p>
             <p className="text-center font-curve">
@@ -38,7 +38,7 @@ function Signin() {
             />
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-background1 border font-curve hover:bg-blue-800 hover:bg-opacity-30 text-font1 rounded"
+              className="w-full px-4 py-2 bg-background2 border font-curve hover:bg-blue-800 hover:bg-opacity-30 text-font1 rounded"
             >
               Sign In
             </button>

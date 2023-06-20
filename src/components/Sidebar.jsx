@@ -94,10 +94,12 @@ export default function Example() {
                     <div className="flex flex-shrink-0 items-center px-4">
                       <img
                         className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=500"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=500"
                         alt="Your Company"
                       />
-                      <p className="text-font1 font-curve ml-2">Simply Good</p>
+                      <p className="text-font1 font-curve ml-2 hover:text-font2">
+                        Simply Good
+                      </p>
                     </div>
                     <nav className="mt-5 space-y-1 px-2">
                       {navigation.map((item) => (
@@ -106,13 +108,13 @@ export default function Example() {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-blue-800 bg-opacity-30 text-font1 font-curve"
-                              : "text-font1  font-curve hover:bg-blue-800 hover:bg-opacity-30",
+                              ? "bg-orange-500 bg-opacity-30 text-font2 font-curve"
+                              : "text-font1  font-curve hover:bg-orange-500 hover:bg-opacity-30 hover:text-font2",
                             "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                           )}
                         >
                           <item.icon
-                            className="mr-4 h-6 w-6 flex-shrink-0 text-font1"
+                            className="mr-4 h-6 w-6 flex-shrink-0 text-font2"
                             aria-hidden="true"
                           />
                           {item.name}
@@ -130,17 +132,19 @@ export default function Example() {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+        <div className="hidden  md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex min-h-0 flex-1 flex-col bg-background1">
+          <div className="flex min-h-0 flex-1 flex-col bg-background1 shadow-lg">
             <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
               <div className="flex flex-shrink-0 items-center px-4">
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                  src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=500"
                   alt="Your Company"
                 />
-                <p className="text-font1 font-curve ml-2">Simply Good</p>
+                <p className="text-font1 font-curve ml-2 hover:text-font2">
+                  Simply Good
+                </p>
               </div>
               <nav className="mt-5 flex-1 space-y-1 px-2">
                 {navigation.map((item) => (
@@ -149,13 +153,13 @@ export default function Example() {
                     href={item.href}
                     className={classNames(
                       item.current
-                        ? "bg-blue-800 bg-opacity-30 text-font1 font-curve"
-                        : "text-font1 font-curve hover:bg-blue-800 hover:bg-opacity-30",
+                        ? "bg-orange-500 bg-opacity-30 text-font2 font-curve"
+                        : "text-font1 font-curve hover:bg-orange-500 hover:bg-opacity-30 hover:text-font2",
                       "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                     )}
                   >
                     <item.icon
-                      className="mr-3 h-6 w-6 flex-shrink-0 text-font1"
+                      className="mr-3 h-6 w-6 flex-shrink-0 text-font2"
                       aria-hidden="true"
                     />
                     {item.name}
@@ -166,7 +170,7 @@ export default function Example() {
           </div>
         </div>
         <div className="flex flex-1 flex-col md:pl-64">
-          <div className="sticky top-0 z-10 bg-background2 bg-opacity-30 min-h-[100vh] pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
+          <div className="sticky top-0 z-10 bg-background1 shadow-lg bg-opacity-30 sm:min-h-[100vh] pl-1 pt-1 sm:pl-3 sm:pt-3 md:hidden">
             <button
               type="button"
               className="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"

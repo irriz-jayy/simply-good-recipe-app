@@ -26,23 +26,23 @@ function Homepage() {
     <>
       <div className="flex">
         <Sidebar />
-        <div className="flex-1 bg-background2 bg-opacity-30">
+        <div className="flex-1 bg-background1">
           <main className="min-h-screen">
-            <div className="h-24 px-2 text-center flex flex-col items-center justify-center font-medium font-heading text-4xl">
+            <div className="h-[25vh] px-2 bg-cover bg-center bg-[url('https://images.pexels.com/photos/4040691/pexels-photo-4040691.jpeg?auto=compress&cs=tinysrgb&w=400')]text-center text-font2 flex flex-col items-center justify-center font-medium font-heading text-4xl">
               Find a recipe
               <input
                 type="text"
                 name="search"
                 id="search"
-                placeholder="Chapati..."
-                className="block w-80 h-10 rounded-md border-gray-300 pl-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                placeholder="Search for 100K+ recipes"
+                className="block w-80 h-10 rounded-md border-gray-300 pl-2 shadow-lg focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               />
             </div>
-            <div className="h-100">
+            <div className="h-[75vh]">
               <Carousel />
             </div>
-            <div className="text-center font-medium font-curve text-4xl ">
-              All recipes
+            <div className="text-left font-medium font-curve text-2xl flex items-center text-font2 ml-4 h-12">
+              Just for you
             </div>
             <div className="m-4 p-2 grid grid-cols-1 gap-4 flex items-center justify-center md:grid md:grid-cols-2 md:gap-2 lg:grid lg:grid-cols-3">
               <div

@@ -9,12 +9,12 @@ module.exports = {
         paragraph: ['"DM Sans"'],
       },
       colors: {
-        background1: "#d54215", //(50%)
-        background2: "#85B7DC", //30%
-        background3: "85B7DC", //70%
+        background1: "#fafafa", //(50%)
+        background2: "#d54215", //30%
         inputbackground: "#D9D9D9",
-        button: "#d54215",
+        button: "#e16120",
         font1: "#000000",
+        font2: "#d54215",
         link: "#423EEA",
       },
     },

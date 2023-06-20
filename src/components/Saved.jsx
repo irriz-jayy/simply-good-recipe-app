@@ -24,7 +24,7 @@ function Saved() {
     <>
       <div className="flex">
         <Sidebar />
-        <div className="flex-1 bg-background2 bg-opacity-30">
+        <div className="flex-1 bg-background1 min-h-[100vh]">
           <main>
             <div className="text-center font-medium font-curve text-4xl ">
               Saved recipes

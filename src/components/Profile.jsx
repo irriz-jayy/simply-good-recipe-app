@@ -6,7 +6,7 @@ function Profile() {
     <>
       <div className="flex">
         <Sidebar />
-        <div className="flex-1 bg-background2 bg-opacity-30 h-[100vh]">
+        <div className="flex-1 bg-background1 min-h-[100vh]">
           <main>
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">

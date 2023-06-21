@@ -47,6 +47,39 @@ function RecipeDetails() {
                 </ul>
               </div>
             </div>
+            <div className="min-h-[75vh] p-2 flex flex-col items-center justify-center">
+              <div className="w-5/6 min-h-[50vh]">
+                <h2 className="text-2xl h-12 my-4 font-heading text-font2">
+                  Reviews
+                </h2>
+                <div className="flex w-full border items-center">
+                  <img
+                    src=""
+                    alt=""
+                    className="h-20 w-20 rounded-full border border-red-800"
+                  />
+                  <input
+                    type="text"
+                    className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap"
+                    placeholder="Leave your review or comment here..."
+                  />
+                </div>
+                <div className="border mt-4 p-2 w-full ">
+                  <ul className="flex items-center">
+                    <li>
+                      <img
+                        src=""
+                        alt=""
+                        className="h-20 w-20 rounded-full border border-red-800"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </main>
         </div>
       </div>

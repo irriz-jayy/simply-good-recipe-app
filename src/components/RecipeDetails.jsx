@@ -30,9 +30,9 @@ function RecipeDetails() {
                 className="w-full h-1/2 lg:w-1/2 lg:h-full"
               />
             </div>
-            <div className="h-[100vh] border border-red-800 p-2 flex flex-col items-center justify-center">
-              <div className="border w-5/6 h-[75vh]">
-                <h2 className="text-2xl h-12 border my-4 font-heading text-font2">
+            <div className="min-h-[75vh] p-2 flex flex-col items-center justify-center">
+              <div className="w-5/6 min-h-[50vh]">
+                <h2 className="text-2xl h-12 my-4 font-heading text-font2">
                   Ingredients
                 </h2>
                 <ul className="font-paragraph text-font1 list-disc">

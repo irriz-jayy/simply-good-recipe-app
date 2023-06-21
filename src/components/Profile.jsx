@@ -16,7 +16,7 @@ function Profile() {
               </div>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
                 <div className="py-4">
-                  <div className="rounded-lg border-4 bg-white grid grid-rows-2 gap-2 ">
+                  <div className="rounded-lg shadow-3xl bg-white grid grid-rows-2 gap-2 ">
                     <div className="flex items-center justify-center p-2 h-68 ">
                       <img
                         className="h-60 rounded-full"
@@ -26,7 +26,7 @@ function Profile() {
                     </div>
                     <div className="grid grid-cols-2 h-48">
                       <div className="col-span-2 flex items-center justify-center">
-                        <h2 className="text-font1 font-curve text-3xl">
+                        <h2 className="text-font2 font-curve text-3xl">
                           Jen Z
                         </h2>
                       </div>

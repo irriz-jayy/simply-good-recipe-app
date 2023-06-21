@@ -65,7 +65,55 @@ function RecipeDetails() {
                   />
                 </div>
                 <div className="border mt-4 p-2 w-full ">
-                  <ul className="flex items-center">
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src=""
+                        alt=""
+                        className="h-20 w-20 rounded-full border border-red-800"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src=""
+                        alt=""
+                        className="h-20 w-20 rounded-full border border-red-800"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src=""
+                        alt=""
+                        className="h-20 w-20 rounded-full border border-red-800"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src=""
+                        alt=""
+                        className="h-20 w-20 rounded-full border border-red-800"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
                     <li>
                       <img
                         src=""

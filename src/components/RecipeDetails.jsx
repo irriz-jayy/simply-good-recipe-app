@@ -60,7 +60,7 @@ function RecipeDetails() {
                   />
                   <input
                     type="text"
-                    className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap"
+                    className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap break-word"
                     placeholder="Leave your review or comment here..."
                   />
                 </div>

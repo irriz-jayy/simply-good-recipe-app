@@ -96,7 +96,7 @@ function Recipes() {
         <Sidebar />
         <div className="flex-1 bg-background1 min-h-[100vh]">
           <main className="min-h-screen">
-            <div className="text-center font-medium font-curve text-4xl ">
+            <div className="font-medium font-curve text-4xl h-48 text-font2 flex items-center justify-center ">
               Your recipes
             </div>
             <div className="m-4 p-2 grid grid-cols-1 gap-4 flex items-center justify-center md:grid md:grid-cols-2 md:gap-2 lg:grid lg:grid-cols-3">

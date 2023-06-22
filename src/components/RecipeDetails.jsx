@@ -21,7 +21,10 @@ function RecipeDetails() {
                   <StarIcon className="h-6 w-6 text-black" />
                 </p>
                 <button className="flex items-center justify-center border w-28 px-4 py-2 bg-background2 border font-curve hover:bg-background2 hover:bg-opacity-50 text-font1 rounded">
-                  <StarIcon className="h-6 w-6 text-black" /> Favourite
+                  <span>
+                    <StarIcon className="h-6 w-6 text-black" />
+                  </span>{" "}
+                  Favourite
                 </button>
               </div>
               <img
@@ -52,28 +55,112 @@ function RecipeDetails() {
                 <h2 className="text-2xl h-12 my-4 font-heading text-font2">
                   Reviews
                 </h2>
-                <div className="flex w-full border items-center">
+                <div className="flex w-full  items-center">
                   <img
-                    src=""
+                    src="https://thekit.ca/wp-content/uploads/2016/05/hairshape-carousel-thekit.ca_.jpg"
                     alt=""
-                    className="h-20 w-20 rounded-full border border-red-800"
+                    className="h-20 w-20 rounded-full"
                   />
                   <input
                     type="text"
-                    className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap"
+                    className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap break-word"
                     placeholder="Leave your review or comment here..."
                   />
                 </div>
-                <div className="border mt-4 p-2 w-full ">
-                  <ul className="flex items-center">
+                <div className="mt-4 p-2 w-full ">
+                  <ul className="flex items-center mt-4">
                     <li>
                       <img
-                        src=""
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
                         alt=""
-                        className="h-20 w-20 rounded-full border border-red-800"
+                        className="h-20 w-20 rounded-full"
                       />
                     </li>
-                    <li className="h-12 w-3/4 border ml-4 pl-4 font-paragraph overflow-wrap">
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
+                        alt=""
+                        className="h-20 w-20 rounded-full"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
+                        alt=""
+                        className="h-20 w-20 rounded-full"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
+                        alt=""
+                        className="h-20 w-20 rounded-full"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
+                        alt=""
+                        className="h-20 w-20 rounded-full"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
+                        alt=""
+                        className="h-20 w-20 rounded-full"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
+                        alt=""
+                        className="h-20 w-20 rounded-full"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
+                      <p className="text-font1 font-paragraph">Review</p>
+                    </li>
+                  </ul>
+                  <ul className="flex items-center mt-4">
+                    <li>
+                      <img
+                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
+                        alt=""
+                        className="h-20 w-20 rounded-full"
+                      />
+                    </li>
+                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
                       <p className="text-font1 font-paragraph">Review</p>
                     </li>
                   </ul>

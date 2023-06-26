@@ -7,7 +7,7 @@ import Recipes from "./components/Recipes";
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import RecipeDetails from "./components/RecipeDetails";
-import AuthProvider from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (

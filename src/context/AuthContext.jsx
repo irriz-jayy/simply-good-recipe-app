@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const AuthContext = React.createContext();
 
@@ -7,7 +7,6 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    // Check if a token exists in local storage when the component mounts
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
@@ -38,13 +37,48 @@ const AuthProvider = ({ children }) => {
       const data = await response.json();
       const { user, jwt } = data;
 
-      // Store the token securely (e.g., in cookies or local storage)
       localStorage.setItem("token", jwt);
 
       setUser(user);
       return { user, token: jwt };
     } catch (error) {
       console.log("Login error:", error);
+      throw error;
+    }
+  };
+
+  const signup = async (
+    name,
+    email,
+    username,
+    password,
+    profile_picture_url
+  ) => {
+    try {
+      const userData = {
+        name: name,
+        email: email,
+        username: username,
+        password: password,
+        profile_picture_url: profile_picture_url,
+      };
+
+      const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user: userData }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      // Perform any additional logic or data manipulation if needed
+      // Return any necessary data or success status
+    } catch (error) {
+      console.log("Signup error:", error);
       throw error;
     }
   };
@@ -58,6 +92,7 @@ const AuthProvider = ({ children }) => {
     user,
     token,
     login,
+    signup,
     logout,
   };
 

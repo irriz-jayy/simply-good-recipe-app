@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 
 const AuthContext = React.createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    // Check if a token exists in local storage when the component mounts
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
+
   const login = async (username, password) => {
     try {
       const credentials = {
@@ -29,6 +39,7 @@ const AuthProvider = ({ children }) => {
       const { user, jwt } = data;
 
       // Store the token securely (e.g., in cookies or local storage)
+      localStorage.setItem("token", jwt);
 
       setUser(user);
       return { user, token: jwt };
@@ -45,6 +56,7 @@ const AuthProvider = ({ children }) => {
 
   const authContextValue = {
     user,
+    token,
     login,
     logout,
   };

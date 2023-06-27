@@ -1,10 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 function Signin() {
   const { login } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    // Check if token exists in local storage, indicating that the user is already authenticated
+    const token = localStorage.getItem("token");
+    if (token) {
+      // Perform any additional logic for an already authenticated user (e.g., redirecting)
+      console.log("User is already authenticated");
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -46,7 +46,6 @@ const AuthProvider = ({ children }) => {
       throw error;
     }
   };
-
   const signup = async (
     name,
     email,
@@ -56,11 +55,13 @@ const AuthProvider = ({ children }) => {
   ) => {
     try {
       const userData = {
-        name: name,
-        email: email,
-        username: username,
-        password: password,
-        profile_picture_url: profile_picture_url,
+        user: {
+          name: name,
+          email: email,
+          username: username,
+          password: password,
+          profile_picture_url: profile_picture_url,
+        },
       };
 
       const response = await fetch("http://localhost:3000/users", {
@@ -68,15 +69,21 @@ const AuthProvider = ({ children }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user: userData }),
+        body: JSON.stringify(userData),
       });
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
 
-      // Perform any additional logic or data manipulation if needed
-      // Return any necessary data or success status
+      const data = await response.json();
+      const { user, jwt } = data;
+
+      // Store the token securely (e.g., in cookies or local storage)
+      localStorage.setItem("token", jwt);
+
+      setUser(user);
+      return user; // Return the user data
     } catch (error) {
       console.log("Signup error:", error);
       throw error;

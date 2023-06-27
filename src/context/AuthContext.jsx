@@ -1,43 +1,52 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 
 const AuthContext = React.createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
-  const login = (username, password) => {
-    return fetch("http://localhost:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.jwt) {
-          const token = data.jwt;
+  useEffect(() => {
+    // Check if a token exists in local storage when the component mounts
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
-          // Store the token securely (e.g., in cookies or local storage)
+  const login = async (username, password) => {
+    try {
+      const credentials = {
+        user: {
+          username: username,
+          password: password,
+        },
+      };
 
-          setUser(data.user);
-          return { user: data.user, token: token };
-        } else {
-          throw new Error("Invalid username or password");
-        }
-      })
-      .catch((error) => {
-        console.log("Login error:", error);
-        throw error;
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
       });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+      const { user, jwt } = data;
+
+      // Store the token securely (e.g., in cookies or local storage)
+      localStorage.setItem("token", jwt);
+
+      setUser(user);
+      return { user, token: jwt };
+    } catch (error) {
+      console.log("Login error:", error);
+      throw error;
+    }
   };
 
   const logout = () => {
@@ -47,6 +56,7 @@ const AuthProvider = ({ children }) => {
 
   const authContextValue = {
     user,
+    token,
     login,
     logout,
   };

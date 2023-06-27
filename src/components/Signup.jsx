@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 function Signin() {
+  const { signup } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const user = await signup(
+        name,
+        email,
+        username,
+        password,
+        profilePicture
+      );
+      console.log("User data:", user);
+      // Handle successful signup, such as redirecting to another page
+    } catch (error) {
+      // Handle signup error, such as displaying an error message
+      console.log("Signup error:", error);
+    }
+  };
+
   return (
     <div
       className="h-screen relative"
@@ -26,6 +53,8 @@ function Signin() {
             <input
               type="text"
               id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-3 py-2 mb-4 border rounded-md font-curve font-light"
             />
             <label htmlFor="name" className="block mb-2 font-curve">
@@ -34,14 +63,28 @@ function Signin() {
             <input
               type="text"
               id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-3 py-2 mb-4 border rounded-md font-curve font-light"
+            />
+            <label htmlFor="name" className="block mb-2 font-curve">
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               className="w-full px-3 py-2 mb-4 border rounded-md font-curve font-light"
             />
             <label htmlFor="profile-picture" className="block mb-2 font-curve">
               Profile Picture
             </label>
             <input
-              type="file"
+              type="text"
               id="pfp"
+              value={profilePicture}
+              onChange={(e) => setProfilePicture(e.target.value)}
               className="w-full px-3 py-2 mb-4 border rounded-md font-curve font-light"
             />
             <label htmlFor="password" className="block mb-2 font-curve">
@@ -50,10 +93,13 @@ function Signin() {
             <input
               type="password"
               id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-3 py-2 mb-4 border rounded-md font-curve font-light"
             />
             <button
               type="submit"
+              onClick={handleSubmit}
               className="w-full px-4 py-2 bg-background2 border font-curve hover:bg-blue-800 hover:bg-opacity-30 text-font1 rounded"
             >
               Sign up

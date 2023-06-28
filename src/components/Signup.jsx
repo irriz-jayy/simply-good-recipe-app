@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 function Signin() {
   const { signup } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -21,7 +23,7 @@ function Signin() {
         profilePicture
       );
       console.log("User data:", user);
-      // Handle successful signup, such as redirecting to another page
+      navigate("/sign-in");
     } catch (error) {
       // Handle signup error, such as displaying an error message
       console.log("Signup error:", error);

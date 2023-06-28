@@ -1,10 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Signin() {
   const { login } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if token exists in local storage, indicating that the user is already authenticated
@@ -25,6 +29,11 @@ function Signin() {
       // Perform any additional logic after successful login, such as redirecting or storing the token
       console.log("Logged in:", user);
       console.log("Token:", token);
+      navigate("/");
+      Swal.fire({
+        icon: "success",
+        title: "Successfull sign in",
+      });
 
       // Clear the form fields
       setUsername("");
@@ -32,6 +41,11 @@ function Signin() {
     } catch (error) {
       // Handle login errors, such as displaying an error message
       console.log("Login error:", error.message);
+      Swal.fire({
+        icon: "error",
+        title: "Failed to log in",
+        text: error.message,
+      });
     }
   };
 

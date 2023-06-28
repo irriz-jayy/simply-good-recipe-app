@@ -32,7 +32,8 @@ const AuthProvider = ({ children }) => {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Sign in failed");
+        const errorMessage = errorData.error || "Invalid username or password";
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();

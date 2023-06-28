@@ -31,7 +31,8 @@ const AuthProvider = ({ children }) => {
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Sign in failed");
       }
 
       const data = await response.json();
@@ -73,7 +74,8 @@ const AuthProvider = ({ children }) => {
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Sign up failed");
       }
 
       const data = await response.json();

@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
       setUser(user);
       return { user, token: jwt };
     } catch (error) {
-      console.log("Login error:", error);
+      // console.log("Login error:", error);
       throw error;
     }
   };

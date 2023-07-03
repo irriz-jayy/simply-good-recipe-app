@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import { Modal, Input, InputNumber, Form, Button, Upload, Select } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {
   PencilIcon,
   TrashIcon,
@@ -15,41 +15,60 @@ function Recipes() {
   const [open, setOpen] = useState(false);
   const [form] = Form.useForm();
   const [recipes, setRecipes] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [token, setToken] = useState("");
 
-  const countryOptions = [
-    { value: "KE", label: "Kenya" },
-    { value: "TZ", label: "Tanzania" },
-    { value: "USA", label: "United States" },
-    { value: "CA", label: "Canada" },
-  ];
-
-  const handleCountryChange = (selectedOption) => {
-    setSelectedCountry(selectedOption);
-  };
-
+  useEffect(() => {
+    // Check if token exists in local storage, indicating that the user is already authenticated
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+      // Perform any additional logic for an already authenticated user (e.g., redirecting)
+      console.log("User is already authenticated");
+      console.log(token);
+    }
+  }, []);
   const handleOk = () => {
-    form
-      .validateFields()
+    form.validateFields()
       .then((values) => {
         const newRecipe = {
           name: values.name,
           time: values.time,
-          servings: values.servings,
+          number_of_people_served: values.servings,
           ingredients: values.ingredients,
           directions: values.directions,
-          country: values.country,
+          description:values.description,
+          country_of_origin: values.country_of_origin,
           image: values.image,
+          user_id: 6, // Initialize with an empty user ID
         };
-
+  
         form.resetFields();
         setOpen(false);
-        setRecipes([...recipes, newRecipe]);
+
+     
+        // Send a POST request to the backend to save the new recipe
+        fetch(' http://127.0.0.1:3000/recipes', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,          },
+          body: JSON.stringify(newRecipe),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Handle the response from the backend if needed
+            console.log('Recipe saved:', data);
+            setRecipes([...recipes, newRecipe]);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
       })
       .catch((errorInfo) => {
-        console.log("Validation failed:", errorInfo);
+        console.log('Validation failed:', errorInfo);
       });
   };
+  
 
   const handleCancel = () => {
     form.resetFields();
@@ -308,6 +327,14 @@ function Recipes() {
           </Form.Item>
 
           <Form.Item
+            label="Description"
+            name="description"
+            rules={[{ required: true, message: "Please enter description" }]}
+          >
+            <Input placeholder="Description" />
+          </Form.Item>
+
+          <Form.Item
             label="Time"
             name="time"
             rules={[{ required: true, message: "Please enter time" }]}
@@ -325,13 +352,11 @@ function Recipes() {
 
           <Form.Item
             label="Country"
-            name="country"
+            name="country_of_origin"
             rules={[{ required: true, message: "Please select a country" }]}
           >
-            <Select
-              value={selectedCountry}
-              onChange={handleCountryChange}
-              options={countryOptions}
+            <Input.TextArea
+              placeholder="country of origin"
             />
           </Form.Item>
 

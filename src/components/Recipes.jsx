@@ -119,6 +119,18 @@ function Recipes() {
     e.stopPropagation();
     console.log("edit");
   };
+
+  const handleCreateRecipe = () => {
+    if (token) {
+      setOpen(true);
+    } else {
+      Swal.fire({
+        icon: "warning",
+        title: "Please Log In",
+        text: "You need to log in to create a recipe.",
+      });
+    }
+  };
   return (
     <>
       <div className="flex">
@@ -309,7 +321,7 @@ function Recipes() {
             <div className="fixed bottom-4 right-4">
               <button
                 className="bg-blue-500 p-3 rounded-md"
-                onClick={() => setOpen(true)}
+                onClick={handleCreateRecipe}
               >
                 <PlusIcon className="h-6 w-6 text-white" />
               </button>

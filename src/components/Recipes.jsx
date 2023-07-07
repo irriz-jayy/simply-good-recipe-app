@@ -2,7 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar";
 import { Modal, Input, InputNumber, Form, Button, Upload, Select } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import {
   PencilIcon,
   TrashIcon,
@@ -28,7 +29,8 @@ function Recipes() {
     }
   }, []);
   const handleOk = () => {
-    form.validateFields()
+    form
+      .validateFields()
       .then((values) => {
         const newRecipe = {
           name: values.name,
@@ -36,39 +38,43 @@ function Recipes() {
           number_of_people_served: values.servings,
           ingredients: values.ingredients,
           directions: values.directions,
-          description:values.description,
+          description: values.description,
           country_of_origin: values.country_of_origin,
           image: values.image,
           user_id: 6, // Initialize with an empty user ID
         };
-  
+
         form.resetFields();
         setOpen(false);
 
-     
         // Send a POST request to the backend to save the new recipe
-        fetch(' http://127.0.0.1:3000/recipes', {
-          method: 'POST',
+        fetch(" http://127.0.0.1:3000/recipes", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,          },
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
           body: JSON.stringify(newRecipe),
         })
           .then((response) => response.json())
           .then((data) => {
             // Handle the response from the backend if needed
-            console.log('Recipe saved:', data);
+            console.log("Recipe saved:", data);
             setRecipes([...recipes, newRecipe]);
+            Swal.fire({
+              icon: "success",
+              title: "Recipe successfully created",
+              text: "Happy cooking",
+            });
           })
           .catch((error) => {
-            console.error('Error:', error);
+            console.error("Error:", error);
           });
       })
       .catch((errorInfo) => {
-        console.log('Validation failed:', errorInfo);
+        console.log("Validation failed:", errorInfo);
       });
   };
-  
 
   const handleCancel = () => {
     form.resetFields();
@@ -355,9 +361,7 @@ function Recipes() {
             name="country_of_origin"
             rules={[{ required: true, message: "Please select a country" }]}
           >
-            <Input.TextArea
-              placeholder="country of origin"
-            />
+            <Input.TextArea placeholder="country of origin" />
           </Form.Item>
 
           <Form.Item

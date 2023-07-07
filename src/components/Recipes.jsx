@@ -69,6 +69,10 @@ function Recipes() {
           })
           .catch((error) => {
             console.error("Error:", error);
+            Swal.fire({
+              icon: "error",
+              text: error.message,
+            });
           });
       })
       .catch((errorInfo) => {

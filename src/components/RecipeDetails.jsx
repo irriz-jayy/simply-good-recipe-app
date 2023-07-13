@@ -3,60 +3,85 @@ import Sidebar from "./Sidebar";
 import { StarIcon } from "@heroicons/react/24/outline";
 
 function RecipeDetails() {
- 
-  
   return (
     <>
       <div className="flex">
         <Sidebar />
         <div className="flex-1 bg-white">
           <main className="min-h-screen">
-            <div className="h-[100vh] flex flex-col lg:flex-row p-2">
-              <div className="w-full h-1/2 lg:w-1/2 lg:h-full flex flex-col items-center justify-center">
-                <p className="text-3xl font-heading text-font2">Name</p>
-                <p className="font-paragraph">Country</p>
-                <p className="m-4 w-36 h-12 flex items-center justify-center">
-                  <StarIcon className="h-6 w-6 text-black" />
-                  <StarIcon className="h-6 w-6 text-black" />
-                  <StarIcon className="h-6 w-6 text-black" />
-                  <StarIcon className="h-6 w-6 text-black" />
-                  <StarIcon className="h-6 w-6 text-black" />
-                </p>
-                <button className="flex items-center justify-center border w-28 px-4 py-2 bg-background2 border font-curve hover:bg-background2 hover:bg-opacity-50 text-font1 rounded">
-                  <span>
-                    <StarIcon className="h-6 w-6 text-black" />
-                  </span>{" "}
-                  Favourite
-                </button>
+            <div className="h-[85vh] flex flex-col lg:flex-row p-2 lg:items-center lg:justify-center ">
+              <div className="w-1/2 h-3/4 ml-4 border flex items-center justify-center">
+                <div className="w-5/6 h-5/6 border flex flex-col items-center justify-center rounded-md text-center">
+                  <p className="text-2xl font-curve text-font2">Name</p>
+                  <p className="text-xl font-heading">Country of origin</p>
+                  <p className="text-lg font-heading">Serves x people</p>
+                  <p className="font-paragraph text-gray-500">Time</p>
+                </div>
               </div>
-              <img
-                src="https://cdn.britannica.com/86/145786-050-5BD27317/chef-cooking-restaurant-kitchen.jpg"
-                alt=""
-                className="w-full h-1/2 lg:w-1/2 lg:h-full"
-              />
+              <div className="w-1/2 h-3/4 mr-4 border flex items-center justify-center ">
+                <img
+                  src="https://recipes.net/wp-content/uploads/portal_files/recipes_net_posts/2021-08/kiwi-berry-cake-recipe-1024x563.jpg"
+                  alt=""
+                  className="w-5/6 h-5/6 border rounded-md"
+                />
+              </div>
             </div>
-            <div className="min-h-[75vh] p-2 flex flex-col items-center justify-center">
-              <div className="w-5/6 min-h-[50vh]">
-                <h2 className="text-2xl h-12 my-4 font-heading text-font2">
+            <div className="flex items-center justify-center">
+              <hr className="w-5/6" />
+            </div>
+            <div className="min-h-[70vh] flex flex items-center justify-center">
+              <div className="w-5/6 min-h-[50vh] ">
+                <p className="text-2xl p-2 text-left font-heading text-font2 ">
+                  Description
+                </p>
+                <p className="font-paragraph">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                  Soluta obcaecati dignissimos tempore sunt doloribus quidem
+                  corporis numquam optio, facere pariatur consequatur quae
+                  officiis tempora sed perspiciatis! Sapiente culpa explicabo
+                  possimus?
+                </p>
+                <p className="text-2xl p-2 text-left font-heading text-font2 ">
                   Ingredients
-                </h2>
-                <ul className="font-paragraph text-font1 list-disc">
-                  <li className="p-2">Ingredient 1</li>
-                  <li className="p-2">Ingredient 2</li>
-                  <li className="p-2">Ingredient 3</li>
-                  <li className="p-2">Ingredient 4</li>
-                  <li className="p-2">Ingredient 5</li>
-                  <li className="p-2">Ingredient 6</li>
-                  <li className="p-2">Ingredient 7</li>
-                  <li className="p-2">Ingredient 8</li>
+                </p>
+                <ul className="list-disc p-2">
+                  <li>Ingredient 1</li>
+                  <li>Ingredient 2</li>
+                  <li>Ingredient 3</li>
+                  <li>Ingredient 4</li>
+                  <li>Ingredient 5</li>
+                  <li>Ingredient 6</li>
+                  <li>Ingredient 7</li>
                 </ul>
               </div>
             </div>
-            <div className="min-h-[75vh] p-2 flex flex-col items-center justify-center">
-              <div className="w-5/6 min-h-[50vh]">
-                <h2 className="text-2xl h-12 my-4 font-heading text-font2">
+            <div className="flex items-center justify-center">
+              <hr className="w-5/6" />
+            </div>
+            <div className="min-h-[70vh] flex flex items-center justify-center">
+              <div className="w-5/6 min-h-[50vh] ">
+                <p className="text-2xl p-2 text-left font-heading text-font2">
+                  Directions
+                </p>
+                <ul className="list-disc p-2">
+                  <li>Direction 1</li>
+                  <li>Direction 2</li>
+                  <li>Direction 3</li>
+                  <li>Direction 4</li>
+                  <li>Direction 5</li>
+                  <li>Direction 6</li>
+                  <li>Direction 7</li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex items-center justify-center">
+              <hr className="w-5/6" />
+            </div>
+            <div className="min-h-[70vh] flex flex items-center justify-center">
+              <div className="w-5/6 min-h-[50vh] ">
+                <p className="text-2xl p-2 text-left font-heading text-font2">
                   Reviews
-                </h2>
+                </p>
                 <div className="flex w-full  items-center">
                   <img
                     src="https://thekit.ca/wp-content/uploads/2016/05/hairshape-carousel-thekit.ca_.jpg"
@@ -70,90 +95,6 @@ function RecipeDetails() {
                   />
                 </div>
                 <div className="mt-4 p-2 w-full ">
-                  <ul className="flex items-center mt-4">
-                    <li>
-                      <img
-                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
-                        alt=""
-                        className="h-20 w-20 rounded-full"
-                      />
-                    </li>
-                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
-                      <p className="text-font1 font-paragraph">Review</p>
-                    </li>
-                  </ul>
-                  <ul className="flex items-center mt-4">
-                    <li>
-                      <img
-                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
-                        alt=""
-                        className="h-20 w-20 rounded-full"
-                      />
-                    </li>
-                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
-                      <p className="text-font1 font-paragraph">Review</p>
-                    </li>
-                  </ul>
-                  <ul className="flex items-center mt-4">
-                    <li>
-                      <img
-                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
-                        alt=""
-                        className="h-20 w-20 rounded-full"
-                      />
-                    </li>
-                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
-                      <p className="text-font1 font-paragraph">Review</p>
-                    </li>
-                  </ul>
-                  <ul className="flex items-center mt-4">
-                    <li>
-                      <img
-                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
-                        alt=""
-                        className="h-20 w-20 rounded-full"
-                      />
-                    </li>
-                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
-                      <p className="text-font1 font-paragraph">Review</p>
-                    </li>
-                  </ul>
-                  <ul className="flex items-center mt-4">
-                    <li>
-                      <img
-                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
-                        alt=""
-                        className="h-20 w-20 rounded-full"
-                      />
-                    </li>
-                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
-                      <p className="text-font1 font-paragraph">Review</p>
-                    </li>
-                  </ul>
-                  <ul className="flex items-center mt-4">
-                    <li>
-                      <img
-                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
-                        alt=""
-                        className="h-20 w-20 rounded-full"
-                      />
-                    </li>
-                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
-                      <p className="text-font1 font-paragraph">Review</p>
-                    </li>
-                  </ul>
-                  <ul className="flex items-center mt-4">
-                    <li>
-                      <img
-                        src="https://images.healthshots.com/healthshots/en/uploads/2022/07/01225819/banana-face-mask-1600x900.jpg"
-                        alt=""
-                        className="h-20 w-20 rounded-full"
-                      />
-                    </li>
-                    <li className="h-12 w-3/4  ml-4 pl-4 font-paragraph overflow-wrap">
-                      <p className="text-font1 font-paragraph">Review</p>
-                    </li>
-                  </ul>
                   <ul className="flex items-center mt-4">
                     <li>
                       <img

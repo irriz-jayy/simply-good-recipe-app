@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signin() {
   const { signup } = useContext(AuthContext);
@@ -24,19 +25,12 @@ function Signin() {
         profilePicture
       );
       console.log("User data:", user);
-      Swal.fire({
-        icon: "success",
-        text: "Sign up success",
-      });
+      toast.success("Sign up successful");
       navigate("/sign-in");
     } catch (error) {
       // Handle signup error, such as displaying an error message
       console.log("Signup error:", error);
-      Swal.fire({
-        icon: "error",
-        title: "Sign up failed",
-        text: error.message,
-      });
+      toast.error(error.message);
     }
   };
 

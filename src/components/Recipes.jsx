@@ -3,7 +3,8 @@ import Sidebar from "./Sidebar";
 import { Modal, Input, InputNumber, Form, Button, Upload, Select } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   PencilIcon,
   TrashIcon,
@@ -61,18 +62,11 @@ function Recipes() {
             // Handle the response from the backend if needed
             console.log("Recipe saved:", data);
             setRecipes([...recipes, newRecipe]);
-            Swal.fire({
-              icon: "success",
-              title: "Recipe successfully created",
-              text: "Happy cooking",
-            });
+            toast.success("Recipe created successfully");
           })
           .catch((error) => {
             console.error("Error:", error);
-            Swal.fire({
-              icon: "error",
-              text: error.message,
-            });
+            toast.error(error.message);
           });
       })
       .catch((errorInfo) => {
@@ -124,11 +118,7 @@ function Recipes() {
     if (token) {
       setOpen(true);
     } else {
-      Swal.fire({
-        icon: "warning",
-        title: "Please Log In",
-        text: "You need to log in to create a recipe.",
-      });
+      toast.error("Please log in to create recipe");
     }
   };
   return (

@@ -8,6 +8,7 @@ import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 import RecipeDetails from "./components/RecipeDetails";
 import { AuthProvider } from "./context/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/recipe-details" element={<RecipeDetails />} />
         </Routes>
+        <ToastContainer />
       </div>
     </AuthProvider>
   );

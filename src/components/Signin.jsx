@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signin() {
   const { login } = useContext(AuthContext);
@@ -29,11 +30,8 @@ function Signin() {
       // Perform any additional logic after successful login, such as redirecting or storing the token
       console.log("Logged in:", user);
       console.log("Token:", token);
+      toast.success("Logged in successfully");
       navigate("/");
-      Swal.fire({
-        icon: "success",
-        title: "Successfull sign in",
-      });
 
       // Clear the form fields
       setUsername("");
@@ -41,11 +39,7 @@ function Signin() {
     } catch (error) {
       // Handle login errors, such as displaying an error message
       console.log("Login error:", error.message);
-      Swal.fire({
-        icon: "error",
-        title: "Failed to log in",
-        text: error.message,
-      });
+      toast.error(error.message);
     }
   };
 

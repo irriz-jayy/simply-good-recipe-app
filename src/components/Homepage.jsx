@@ -8,6 +8,7 @@ import { fetchRecipes } from "../api/recipe";
 
 function Homepage() {
   const [recipes, setRecipes] = useState([]);
+  const [hoveredIndexes, setHoveredIndexes] = useState([]);
 
   useEffect(() => {
     const fetchRecipesData = async () => {
@@ -15,6 +16,7 @@ function Homepage() {
         const recipesData = await fetchRecipes();
         console.log("Fetched recipes:", recipesData);
         setRecipes(recipesData);
+        setHoveredIndexes(Array(recipesData.length).fill(false));
       } catch (error) {
         console.error("Error fetching recipes:", error);
       }
@@ -23,22 +25,28 @@ function Homepage() {
     fetchRecipesData();
   }, []);
 
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+  const handleMouseEnter = (index) => {
+    setHoveredIndexes((prevIndexes) =>
+      prevIndexes.map((hovered, i) => (i === index ? true : hovered))
+    );
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+  const handleMouseLeave = (index) => {
+    setHoveredIndexes((prevIndexes) =>
+      prevIndexes.map((hovered, i) => (i === index ? false : hovered))
+    );
   };
 
-  const handleTouchStart = () => {
-    setIsHovered(true);
+  const handleTouchStart = (index) => {
+    setHoveredIndexes((prevIndexes) =>
+      prevIndexes.map((hovered, i) => (i === index ? true : hovered))
+    );
   };
 
-  const handleTouchEnd = () => {
-    setIsHovered(false);
+  const handleTouchEnd = (index) => {
+    setHoveredIndexes((prevIndexes) =>
+      prevIndexes.map((hovered, i) => (i === index ? false : hovered))
+    );
   };
   return (
     <>
@@ -64,14 +72,14 @@ function Homepage() {
             </div>
             {/* recipe card model */}
             <div className="m-4 p-2 grid grid-cols-1 gap-4 flex items-center justify-center md:grid md:grid-cols-2 md:gap-2 lg:grid lg:grid-cols-3">
-              {recipes.map((recipe) => (
+              {recipes.map((recipe, index) => (
                 <div
                   key={recipe.id}
                   className="relative"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                  onTouchStart={handleTouchStart}
-                  onTouchEnd={handleTouchEnd}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={() => handleMouseLeave(index)}
+                  onTouchStart={() => handleTouchStart(index)}
+                  onTouchEnd={() => handleTouchEnd(index)}
                 >
                   <img
                     src={recipe.image_url}
@@ -79,7 +87,7 @@ function Homepage() {
                     className="w-full h-full object-cover"
                   />
 
-                  {isHovered && (
+                  {hoveredIndexes[index] && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
                       <div className="text-white text-center font-curve">
                         <h3 className="text-xl font-semibold mb-2">
@@ -99,7 +107,7 @@ function Homepage() {
                   )}
                 </div>
               ))}
-            </div>
+            </div>{" "}
           </main>
         </div>
       </div>

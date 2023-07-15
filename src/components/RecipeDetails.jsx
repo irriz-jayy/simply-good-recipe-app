@@ -1,6 +1,5 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-import { StarIcon } from "@heroicons/react/24/outline";
 
 function RecipeDetails() {
   return (

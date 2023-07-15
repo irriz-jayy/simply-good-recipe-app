@@ -1,10 +1,27 @@
 import React from "react";
+import { useEffect } from "react";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
 import Carousel from "./Carousel";
+import { fetchRecipes } from "../api/recipe";
 
 function Homepage() {
+  useEffect(() => {
+    const fetchRecipesData = async () => {
+      try {
+        const recipes = await fetchRecipes();
+        console.log("Fetched recipes:", recipes);
+        // Set the fetched recipes in state or perform any other logic
+      } catch (error) {
+        // Handle error
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchRecipesData();
+  }, []);
+
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {

@@ -81,33 +81,41 @@ function Homepage() {
                   onTouchStart={() => handleTouchStart(index)}
                   onTouchEnd={() => handleTouchEnd(index)}
                 >
-                  <img
-                    src={recipe.image_url}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
+                  <div className="relative">
+                    <img
+                      src={recipe.image_url}
+                      alt=""
+                      className="w-full h-96 object-cover"
+                    />
 
-                  {hoveredIndexes[index] && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
-                      <div className="text-white text-center font-curve">
-                        <h3 className="text-xl font-semibold mb-2">
-                          {recipe.name}
-                        </h3>
-                        <p>{recipe.description}</p>
-                        <p>Time: {recipe.time}</p>
-                        <p>Servings: {recipe.number_of_people_served}</p>
-                        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hover:cursor-pointer">
-                          <StarIcon
-                            className="h-6 w-6 text-white"
-                            aria-hidden="true"
-                          />
+                    {hoveredIndexes[index] && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:cursor-pointer">
+                        <div className="text-white text-center font-curve">
+                          <h3 className="text-xl font-semibold mb-2">
+                            {recipe.name}
+                          </h3>
+                          <p>{recipe.description}</p>
+                          <p>Time: {recipe.time}</p>
+                          <p>Servings: {recipe.number_of_people_served}</p>
                         </div>
                       </div>
+                    )}
+                  </div>
+                  <div className="h-12 flex  items-center">
+                    <p className="font-semibold mt-2 font-heading">
+                      {recipe.name}
+                    </p>
+                    <div className="absolute bottom-4 right-2 transform translate-y-1/4 hover:cursor-pointer">
+                      {" "}
+                      <StarIcon
+                        className="h-8 w-8 text-font2"
+                        aria-hidden="true"
+                      />
                     </div>
-                  )}
+                  </div>
                 </div>
               ))}
-            </div>{" "}
+            </div>
           </main>
         </div>
       </div>
